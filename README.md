@@ -4,6 +4,8 @@ The object of this project is to train a face detection model, then given a pict
 
 # Dataset
 
+Image patches of fixed size (3x48x48) of faces and non-faces.
+
 # Designed Architecture
 
 # Training
