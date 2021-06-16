@@ -8,6 +8,8 @@ Image patches of fixed size (3x48x48) of faces and non-faces.
 
 # Designed Architecture
 
+I implemented a binary fully convolutional model. Since this network is fully convolutional, I can feed it with bigger images and obtain face scores for different locations of image patches all at once. Spatial output corresponds to face probability at different locations of the input image.
+
 # Training
 
 # Evaluation
