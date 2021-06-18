@@ -112,27 +112,30 @@ To improve my model, I tuned my achitecture, hyper-parameters and regularization
 
 <br>
 
-Using the imporved model, I found that the best threshold in this case is 0.993
+Using the imporved model, I found that the best threshold in this case is 0.9993
 
-|        | Improved Face Detection (threshold 0.99)    |
+|        | Improved Face Detection (threshold 0.9993)  |
 |--------|---------------------------------------------|
-| First  |  | 
-| Second |  |
-| Thrid  |  |
-| Fourth |  |
+| First  | ![1](https://user-images.githubusercontent.com/37695060/122599138-258e6100-d06e-11eb-97c1-aadb21bec2ac.png) | 
+| Second | ![2](https://user-images.githubusercontent.com/37695060/122599176-36d76d80-d06e-11eb-9c75-3f1a9432d491.png) |
+| Thrid  | ![3](https://user-images.githubusercontent.com/37695060/122599192-3dfe7b80-d06e-11eb-82d9-9482c77abb99.png) |
+| Fourth | ![4](https://user-images.githubusercontent.com/37695060/122599212-4656b680-d06e-11eb-9230-ae0a1568078c.png) |
 
 <br>
 
 # Conclusion
+
+![download](https://user-images.githubusercontent.com/37695060/122599032-f972e000-d06d-11eb-8cda-5548117cc635.png)
+
 
 In conclusion, the validation loss and accuracy have been improved compared to the point 1 as follows:
 
 |        |Loss|Accuracy|
 |:-------|:---|:-------|
 |Before|0.1237|95.60|
-|After |0.0958|96.44|
+|After |0.0977|96.31|
 
-Hence, the validation accuracy increases `1.2` from `95.60` to `96.44` by using the improved model.
+Hence, the validation accuracy increases `0.71` from `95.60` to `96.31` by using the improved model.
 
 <br>
 
