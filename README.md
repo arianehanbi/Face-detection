@@ -45,24 +45,15 @@ I implement a binary fully convolutional model. Since this network is fully conv
 # Face detector
 If we feed the model with image of size H * W, and we get the outptu of size outH * outW, the output at coordinates (0,0) corresponds to the top left corner patch of the image (0,0,48,48) [coordinates: (x1,y1,x2,y2); where (x1,y1)-coordinates of top left corner of the patch and (x2,y2)-coordinates of bottom right corner of the patch]. The output at botton right coordinates (outH-1, outW-1) corresponds to input image patch (W-1-48, H-1-48, W-1, H-1) [bottom right corner]. The other correspondences can be computed proportionally.
 
-```
-threshold 
-```
-<table>
-  <tr>
-    <td> <img src="sample.png"  alt="1" width = 360px height = 640px ></td>
 
-    <td><img src="img2.png" alt="2" width = 360px height = 640px></td>
-   </tr> 
-   <tr>
-      <td><img src="./Scshot/cab_arrived.png" alt="3" width = 360px height = 640px></td>
+|        | Face Detection (threshold 0.99)    | Face Detection (threshold 0.9997)  |
+|--------|------------------------------------|------------------------------------|
+| First  | ![firstDetector1](https://user-images.githubusercontent.com/37695060/122597012-093cf500-d06b-11eb-9828-387c3504e0dc.png)| ![secondDetector1](https://user-images.githubusercontent.com/37695060/122597595-df380280-d06b-11eb-98be-0a5c1121f483.png) |
+| Second | ![firstDetector2](https://user-images.githubusercontent.com/37695060/122597191-5620cb80-d06b-11eb-8b9f-415e4ce592be.png)| ![secondDetector2](https://user-images.githubusercontent.com/37695060/122597607-e4954d00-d06b-11eb-8468-712e1bc4adb7.png) |
+| Thrid  | ![firstDetector3](https://user-images.githubusercontent.com/37695060/122597235-62a52400-d06b-11eb-9333-42c2bcd2bbae.png)| ![secondDetector3](https://user-images.githubusercontent.com/37695060/122597621-e8c16a80-d06b-11eb-8468-9ff01fdf6ee4.png) |
+| Fourth | ![firstDetector4](https://user-images.githubusercontent.com/37695060/122597250-689b0500-d06b-11eb-9fe6-53db231447d8.png)| ![secondDetector4](https://user-images.githubusercontent.com/37695060/122597631-ee1eb500-d06b-11eb-890a-2b277ba85cce.png) |
 
-      <td><img src="./Scshot/trip_end.png" align="right" alt="4" width = 360px height = 640px>
-  </td>
-  </tr>
-</table>
-
-
+<br>
 
 # Improvement
 
@@ -85,22 +76,66 @@ To improve my model, I tuned my achitecture, hyper-parameters and regularization
 
 <br>
 
-In conclusion, the validation loss and accuracy have been improved compared to the point 1 as follows:
+> Improved model network
 
-|        |Loss|Accuracy|
-|:-------|:---|:-------|
-|Before|0.1270|95.24|
-|After |0.0958|96.44|
+            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, stride=1),
+            nn.MaxPool2d(kernel_size=3, stride=2, ceil_mode=True),
+            nn.BatchNorm2d(32),
+            nn.LeakyReLU(negative_slope=0.2),
 
-Hence, the validation accuracy increases `1.2` from `95.24` to `96.44` by using the improved model.
+            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, stride=1),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+            nn.BatchNorm2d(64),
+            nn.LeakyReLU(negative_slope=0.2),
+            nn.Dropout(dropout_p),
+
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, stride=1),
+            nn.MaxPool2d(kernel_size=2, stride=2),
+            nn.BatchNorm2d(64),
+            nn.LeakyReLU(negative_slope=0.2),
+
+            nn.Conv2d(in_channels=64, out_channels=128, kernel_size=2, stride=1),
+            nn.BatchNorm2d(128),
+            nn.LeakyReLU(negative_slope=0.2),
+            nn.Dropout(dropout_p),
+
+            nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, stride=1),
+            nn.BatchNorm2d(256),
+            nn.LeakyReLU(negative_slope=0.2),
+
+            nn.Conv2d(in_channels=256, out_channels=512, kernel_size=1, stride=1),
+            nn.BatchNorm2d(512),
+            nn.LeakyReLU(negative_slope=0.2),
+
+            nn.Conv2d(in_channels=512, out_channels=2, kernel_size=1, stride=1)
+
+
+<br>
+
+Using the imporved model, I found that the best threshold in this case is 0.993
+
+|        | Improved Face Detection (threshold 0.99)    |
+|--------|---------------------------------------------|
+| First  |  | 
+| Second |  |
+| Thrid  |  |
+| Fourth |  |
 
 <br>
 
 # Conclusion
 
-Using the imporved model, I found that the best threshold in this case is 0.993
+In conclusion, the validation loss and accuracy have been improved compared to the point 1 as follows:
+
+|        |Loss|Accuracy|
+|:-------|:---|:-------|
+|Before|0.1237|95.60|
+|After |0.0958|96.44|
+
+Hence, the validation accuracy increases `1.2` from `95.60` to `96.44` by using the improved model.
 
 <br>
+
 
 # Reference
 Kaipeng Zhang, Zhanpeng Zhang, Zhifeng Li, Senior Member, IEEE, and Yu Qiao, Senior Member, IEEE, "Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks"
