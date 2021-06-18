@@ -46,6 +46,17 @@ I implement a binary fully convolutional model. Since this network is fully conv
 If we feed the model with image of size H * W, and we get the outptu of size outH * outW, the output at coordinates (0,0) corresponds to the top left corner patch of the image (0,0,48,48) [coordinates: (x1,y1,x2,y2); where (x1,y1)-coordinates of top left corner of the patch and (x2,y2)-coordinates of bottom right corner of the patch]. The output at botton right coordinates (outH-1, outW-1) corresponds to input image patch (W-1-48, H-1-48, W-1, H-1) [bottom right corner]. The other correspondences can be computed proportionally.
 
 
+<table align='center'>
+<tr align='center'>
+<td> mixGaussian </td>
+<td> swiss_roll </td>
+<td> normal </td>
+</tr>
+<tr>
+<td><img src = ![1](https://user-images.githubusercontent.com/37695060/122595151-4eabf300-d068-11eb-995d-0c4a7341ef3f.png) height = '250px'>
+<td><img src = 'samples/target_prior_distribution_swiss_roll.png' height = '250px'>
+<td><img src = 'samples/target_prior_distribution_normal.png' height = '250px'>
+</tr>
 
 <br>
 
