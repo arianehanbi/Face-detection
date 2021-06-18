@@ -48,17 +48,22 @@ If we feed the model with image of size H * W, and we get the outptu of size out
 
 <table align='center'>
 <tr align='center'>
-<td> mixGaussian </td>
-<td> swiss_roll </td>
-<td> normal </td>
+<td> First Sample </td>
+<td> Second Sample </td>
 </tr>
 <tr>
 <td><img src = ![1](https://user-images.githubusercontent.com/37695060/122595151-4eabf300-d068-11eb-995d-0c4a7341ef3f.png) height = '250px'>
 <td><img src = 'samples/target_prior_distribution_swiss_roll.png' height = '250px'>
-<td><img src = 'samples/target_prior_distribution_normal.png' height = '250px'>
+</tr>
+<td> First Sample </td>
+<td> Second Sample </td>
+</tr>
+<tr>
+<td><img src = ![1](https://user-images.githubusercontent.com/37695060/122595151-4eabf300-d068-11eb-995d-0c4a7341ef3f.png) height = '250px'>
+<td><img src = 'samples/target_prior_distribution_swiss_roll.png' height = '250px'>
 </tr>
 
-<br>
+
 
 # Improvement
 
